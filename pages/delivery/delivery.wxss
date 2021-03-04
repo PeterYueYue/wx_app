@@ -1,0 +1,54 @@
+page{
+  background-color: #fff;
+  height: 100vh;
+}
+.page{
+  height: 244rpx;
+  border-bottom: 1rpx solid #ededed;
+  position: relative;
+}
+.img{
+  position: absolute;
+  width: 84rpx;
+  top: 80rpx;
+  left: 34rpx;
+}
+.text1{
+  top: 44rpx;
+  left: 144rpx;
+  position: absolute;
+}
+.num{
+  font-size: 30rpx;
+  color: #1A1A1A;
+  font-weight: 600;
+}
+.time{
+  font-size: 26rpx;
+  color: #B3B3B3; 
+  margin-top: 12rpx;
+  margin-bottom: 26rpx;
+}
+.kg{
+  font-size: 26rpx;
+  color: #1A1A1A;
+}
+.more{
+  position: absolute;
+  font-size: 28rpx;
+  color: #999;
+  top: 102rpx;
+  right: 32rpx;
+}
+.hint {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.hint>image {
+  width: 108rpx;
+  margin-bottom: 10rpx;
+}

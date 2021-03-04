@@ -1,0 +1,217 @@
+.page{
+  background-color: #F9F9F9;
+  width: 100%;
+  min-height: 100vh;
+}
+.head{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50rpx;
+  background-color: #fff;
+  padding-bottom: 30rpx;
+}
+.progress{
+  width: 532rpx;
+  height: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.progress .line{
+  width: 532rpx;
+  height: 4rpx;
+  background-color: #99D0FF;
+}
+.progress .point{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: calc(50% - 15rpx);
+  top: 0;
+}
+.step_names{
+  width: 600rpx;
+  font-size: 30rpx;
+  color: #999999;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+.content{
+  padding: 30rpx;
+}
+.active{
+  color: #3AA5FF !important;
+}
+.main{
+  width: 100%;
+  min-height: 900rpx;
+  padding-top:68rpx;
+  background-color: #fff;
+  box-shadow: 0px 5rpx 13rpx 0px rgba(36, 36, 36, 0.08);
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-bottom: 200rpx;
+  box-sizing: border-box;
+}
+.img1{
+  width: 400rpx;
+  height: 300rpx;
+}
+.img3{
+  width: 566rpx;
+  height: 212rpx;
+}
+.title_box{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 90rpx;
+  font-size: 30rpx;
+  color: #252525;
+}
+.title_box text{
+  margin: 0 20rpx;
+}
+.title_box image{
+  width: 110rpx;
+  height: 12rpx;
+}
+.scan_icon{
+  width: 266rpx;
+  height: 266rpx;
+  margin-top: 90rpx;
+}
+.input_box{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 140rpx;
+}
+
+.input_box input{
+  width: 200rpx;
+  border-bottom: 1px solid #3AA5FF;
+  text-align: center;
+  font-size: 34rpx;
+  color: #333333;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.input_box text{
+  font-size: 56rpx;
+  color: #3AA5FF;
+  margin-left: 20rpx;
+}
+.btns{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  position: absolute;
+  bottom: 50rpx;
+  left: 0;
+  font-size: 30rpx;
+}
+.btns .button{
+  width: 250rpx;
+  height: 90rpx;
+  border: 1px solid #3AA5FF;
+  text-align: center;
+  line-height: 90rpx;
+  box-shadow: 0px 5rpx 13rpx 0px rgba(36, 36, 36, 0.08);
+  border-radius: 45rpx;
+  box-sizing: content-box;
+}
+.btn_left{
+  background-color: #fff;
+  color: #3AA5FF;
+  margin-right: 67rpx;
+}
+.btn_right{
+  background-color: #3AA5FF;
+  color: #fff;
+}
+.next_btn{
+  width: 340rpx;
+  height: 90rpx;
+  background-color: #3AA5FF;
+  color: #fff;
+  line-height: 90rpx;
+  text-align: center;
+  box-shadow: 0px 5rpx 13rpx 0px rgba(36, 36, 36, 0.08);
+  border-radius: 45rpx;
+}
+.bag_code_list{
+  padding-top: 50rpx;
+}
+.code_item{
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+
+}
+.code_item image{
+  width: 42rpx;
+  height: 42rpx;
+  margin-right: 26rpx;
+}
+
+.vouItem {
+  width: 528rpx;
+  background-color: #ffffff;
+  box-shadow:0px 1px 16rpx 0rpx rgba(95,49,0,0.17);
+  border-radius:10rpx;
+  font-size: 22rpx;
+  color: #999;
+  margin: 20rpx 10rpx 0;
+  padding-right: 20rpx;
+  box-sizing:border-box;
+}
+.vouItem .sign{
+  display: flex;
+  /* min-height: 182rpx; */
+  align-items: center;
+  padding: 20rpx 0;
+  
+}
+.vouItem .tips {
+  margin-bottom: 15rpx;
+  font-size: 16rpx;
+}
+.vouItem .tips image {
+  width: 16rpx;
+  vertical-align: middle;
+  margin-right: 20rpx;
+}
+.vouItem .stateIcon{
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+  margin-left: 20rpx;
+}
+.vouItem .pic{
+  width: 92rpx;
+  height: 92rpx;
+  margin-right: 30rpx;
+}
+.vouItem .info{
+  flex: 1;
+}
+.vouItem .title{
+  font-size: 34rpx;
+  color: #FF9626;
+  margin-bottom: 10rpx;
+}
+.mt50{
+  margin-top: 50rpx !important;
+}

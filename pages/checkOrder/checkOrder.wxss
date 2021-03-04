@@ -1,0 +1,92 @@
+.page {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  padding-top: 20rpx;
+}
+
+.head {
+  width: 686rpx;
+  height: 260rpx;
+  margin: 0 32rpx 20rpx;
+  box-sizing: border-box;
+  padding: 48rpx 32rpx;
+  position: relative;
+  background-size: 100% 100% !important;
+}
+
+.headTop {
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.headTop>text:nth-child(2) {
+  font-size: 26rpx;
+  float: right;
+}
+
+.orderNum {
+  font-weight: 600;
+  margin-top: 18rpx;
+  font-size: 38rpx;
+  color: #fff;
+}
+
+.head>cover-image {
+  position: absolute;
+  right: 32rpx;
+  bottom: 48rpx;
+}
+
+.steps {
+  margin-top: 20rpx;
+}
+
+.van-step {
+  font-size: 28rpx !important;
+  color: rgb(16, 142, 233) !important;
+  margin-left: 50rpx;
+}
+
+.van-step__title {
+  margin-left: 20rpx;
+}
+
+
+.van-hairline--bottom:after, .van-hairline--left:after,
+.van-hairline--right:after, .van-hairline--surround:after,
+.van-hairline--top-bottom:after, .van-hairline--top:after, .van-hairline:after {
+  border: none !important;
+}
+
+.am-vertical-step-icon {
+  background-color: rgb(16, 142, 233) !important;
+}
+
+.foot {
+  width: 686rpx;
+  height: 200rpx;
+  margin: auto;
+  margin-top: 200rpx;
+  padding: 44rpx 50rpx;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 28rpx;
+  color: #4d4d4d;
+}
+
+.ways {
+  font-size: 38rpx;
+  color: #1a1a1a;
+  font-weight: 600;
+  margin-top: 30rpx;
+}
+
+/* steps设置字体 */
+
+.am-vertical-step-title {
+  font-size: 28rpx;
+}

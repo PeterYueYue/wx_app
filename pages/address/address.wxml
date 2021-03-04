@@ -1,0 +1,83 @@
+<view class="page">
+  <view wx:if="{{status==1}}">
+    <view class="hint" wx:if="{{status1 == 1}}">
+      <image mode="widthFix" src="{{imgUrl}}bao/10.png" />
+      <text>没有地址信息</text>
+    </view>
+    <view wx:else>
+      <view wx:for="{{addList}}" wx:key="index" class="father">
+        <block wx:if="{{item.isDefault == 0}}">
+          <block>
+            <text class="name ell">{{item.userName}}</text>
+            <text class="phone">{{item.userMobile}}</text>
+            <text class="add ell">{{item.provinceName + item.cityName + item.areaName + item.address}}</text>
+          </block>
+          <view catchtap="edit" class="edit" data-add="{{item}}">
+            <image mode="widthFix" src="{{imgUrl+'address/4.png'}}" />
+          </view>
+          <view catchtap="delete" class="delete" data-delid="{{item.id}}">
+            <image mode="widthFix" src="{{imgUrl+'address/del.png'}}" />
+          </view>
+        </block>
+        <block wx:if="{{item.isDefault == 1}}">
+          <block>
+            <text class="name ell">{{item.userName}}</text>
+            <text class="phone">{{item.userMobile}}</text>
+            <text class="isDefault">默认</text>
+            <text class="add1 ell">{{item.provinceName + item.cityName + item.areaName + item.address}}</text>
+          </block>
+          <view catchtap="edit" class="edit" data-add="{{item}}">
+            <image mode="widthFix" src="{{imgUrl+'address/4.png'}}" />
+          </view>
+          <view catchtap="delete" class="delete" data-delid="{{item.id}}">
+            <image mode="widthFix" src="{{imgUrl+'address/del.png'}}" />
+          </view>
+        </block>
+      </view>
+
+    </view>
+  </view>
+  <view wx:elif="{{status==2}}">
+    <view class="hint" wx:if="{{status1 == 1}}">
+      <image mode="widthFix" src="{{imgUrl}}bao/10.png" />
+      <text>没有地址信息</text>
+    </view>
+    <view wx:else>
+      <view class="father" wx:for="{{addList}}" wx:key="index" bindtap="goBack" data-add="{{item}}">
+        <block wx:if="{{item.isDefault == 0}}">
+          <block>
+            <text class="name ell">{{item.userName}}</text>
+            <text class="phone">{{item.userMobile}}</text>
+            <text class="add ell">{{item.provinceName + item.cityName + item.areaName + item.address}}</text>
+          </block>
+          <view catchtap="edit" class="edit" data-add="{{item}}">
+            <image mode="widthFix" src="{{imgUrl+'address/4.png'}}" />
+          </view>
+          <view catchtap="delete" class="delete" data-delid="{{item.id}}">
+            <image mode="widthFix" src="{{imgUrl+'address/del.png'}}" />
+          </view>
+        </block>
+        <block wx:if="{{item.isDefault == 1}}">
+          <block>
+            <text class="name ell">{{item.userName}}</text>
+            <text class="phone">{{item.userMobile}}</text>
+            <text class="isDefault">默认</text>
+            <text class="add1 ell">{{item.provinceName + item.cityName + item.areaName + item.address}}</text>
+          </block>
+          <view catchtap="edit" class="edit" data-add="{{item}}">
+            <image mode="widthFix" src="{{imgUrl+'address/4.png'}}" />
+          </view>
+          <view catchtap="delete" class="delete" data-delid="{{item.id}}">
+            <image mode="widthFix" src="{{imgUrl+'address/del.png'}}" />
+          </view>
+        </block>
+      </view>
+
+    </view>
+  </view>
+  <!-- 新建地址 -->
+  <!--<button class="new-add" bindtap="goToNewAddress">新建地址</button> -->
+  <view class="btn">
+    <button class="new-add" bindtap="goToNewAddress">新建地址</button>
+  </view>
+</view>

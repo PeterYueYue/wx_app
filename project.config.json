@@ -1,0 +1,271 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": false,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "useApiHostProcess": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.10.2",
+  "appid": "wx149f12396819ff94",
+  "projectname": "bag",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "common=bao",
+          "scene": 1025
+        },
+        {
+          "id": -1,
+          "name": "优惠券包",
+          "pathName": "pages/vouchers/typeList/typeList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "商城下单",
+          "pathName": "pages/shop/orderSure/orderSure",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "达能活动发袋",
+          "pathName": "pages/member/dnActivity/dnActivity",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "脉动束绳包活动",
+          "pathName": "pages/member/mdActivity/mdActivity",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "成为会员",
+          "pathName": "pages/member/member/member",
+          "query": "id=123456",
+          "scene": null
+        },
+        {
+          "id": 7,
+          "name": "盈创IOT",
+          "pathName": "pages/activity/yciotScan/yciotScan",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "预约下单",
+          "pathName": "pages/appointment/appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "公益详情",
+          "pathName": "pages/publicBenefit/benefitDetail/benefitDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "物资捐赠",
+          "pathName": "pages/publicBenefit/supplies/supplies",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "捐赠成功页面",
+          "pathName": "pages/publicBenefit/success/success",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "脉动活动入口线上",
+          "pathName": "pages/member/dnLog/dnLog",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "卡券列表2",
+          "pathName": "pages/vouchers/vouList/vouList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "卡券详情",
+          "pathName": "pages/vouchers/vouDetail/vouDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "答题拾尚课堂",
+          "pathName": "pages/answer/shClassroom/shClassroom",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/answer/epa/epa",
+          "pathName": "pages/answer/epa/epa",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "拾尚课堂题库",
+          "pathName": "pages/answer/library/library",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "全家跳跳卡目标页面",
+          "pathName": "pages/activity/wholeFamily/wholeFamily",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "IOT站点列表",
+          "pathName": "pages/activity/iotSiteList/iotSiteList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/member/member/member",
+          "pathName": "pages/member/member/member",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "抽奖",
+          "pathName": "pages/activity/lottery/lottery",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "领取拾尚包",
+          "pathName": "pages/member/nomalMember/nomalMember",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "兑换中心",
+          "pathName": "pages/index/index",
+          "query": "type=bao",
+          "scene": null
+        },
+        {
+          "name": "pages/vouchers/timelogin/timelogin",
+          "pathName": "pages/vouchers/timelogin/timelogin",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/sort/sort",
+          "pathName": "pages/sort/sort",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "年度账单",
+          "pathName": "pages/annualBill/bill/bill",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "年度账单一",
+          "pathName": "pages/annualBill/billOne/billOne",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "IOT拾尚包",
+          "pathName": "pages/iot/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "iot_ssb_login",
+          "pathName": "pages/iot/iot_ssb/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "iot_replace_bag",
+          "pathName": "pages/iot/iot_ssb/replace_bag/replace_bag",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "iot_open_door",
+          "pathName": "pages/iot/iot_ssb/open_door/open_door",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/iot/login/login",
+          "pathName": "pages/iot/login/login",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

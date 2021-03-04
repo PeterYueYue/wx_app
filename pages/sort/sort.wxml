@@ -1,0 +1,19 @@
+<view class="page">
+  <view class="search-wrap" bindtap="search">
+    <input placeholder="搜索垃圾  查看分类" disabled placeholder-style="placeholder" />
+    <image mode="widthFix" src="{{imgUrl}}bag/search.png" />
+  </view>
+  <view class="cate_container">
+    <!-- 左侧 菜单 -->
+    <scroll-view scroll-y="{{true}}" class="left_menu">
+      <view class="menu_item {{index===currentIndex?'active':''}}" wx:for="{{leftMenuList}}" wx:key="index" bindtap="handleMenuChange" data-index="{{index}}">{{item.title}}</view>
+    </scroll-view>
+    <!-- 右侧垃圾分类内容 -->
+    <scroll-view scroll-y="{{true}}" class="right_content" scroll-top="{{scrollTop}}" bindscrolltolower="lower" bindscroll="scroll">
+      <view class="detail" wx:for="{{rightList[currentIndex].content}}" wx:key="index">
+        <text>{{item.categoryName}}</text>
+        <!-- <text>{{item.isRegenerant == 1 ? "拾尚包可回收" : ""}}</text> -->
+      </view>
+    </scroll-view>
+  </view>
+</view>

@@ -1,0 +1,129 @@
+<view class="page">
+  <!-- 选择后地址 -->
+  <view class="address1" wx:if="{{addressStatus}}" bindtap="toAddress">
+    <view class="word">
+      <view>
+        <text class="nickname ell">{{add.userName}}</text>
+        <text class="phone ell">{{add.userMobile}}</text></view>
+      <view class="detail ell">{{add.provinceName+ ' ' + add.cityName+ ' ' + add.areaName + add.address}}</view>
+    </view>
+    <view>
+      <image mode="widthFix" src="{{imgUrlNew}}yy/member/next.png"></image>
+    </view>
+  </view>
+  <!-- 选择地址 -->
+  <view wx:else class="address clear" bindtap="toAddress">
+    <image src="{{imgUrl}}bag/5.png" mode="widthFix" />
+    <view>请选择收货地址</view>
+    <text class="fa fa-angle-right r" aria-hidden="true"></text>
+  </view>
+  <!-- 商品栏 -->
+  <view class="order">
+    <view class="flex">
+      <view>
+        <image class="head" mode="scaleToFill" src="{{productDetails.mainPic}}"></image></view>
+      <view class="flex_right">
+        <view class="desc">
+          <view class="title">{{productDetails.name}}</view>
+        </view>
+        <view class="p1">
+          {{productDetails.remark?productDetails.remark:''}}
+        </view>
+        <view class="p1">
+          <image class="coin" mode="scaleToFill" src="{{imgUrlNew}}yy/shop/ordercoin.png"></image>{{productDetails.price}}
+        </view>
+      </view>
+    </view>
+    <!-- 详情数据 -->
+    <view class="detail">
+      <view class="list">
+        <text>商品金额</text>
+        <text>
+          <image class="coin" mode="scaleToFill" src="{{imgUrlNew}}yy/shop/ordercoin.png"></image>{{productDetails.price}}</text>
+      </view>
+      <view wx:if="{{userInfoMore.residueMoney!=0 && productDetails.price!=0}}" class="useSsb" bindtap="check" >
+        <view class="{{selected?'blue':'gray'}}">使用{{selected?coin:0}}拾尚币抵用</view>
+        <view>
+          <image class="img" wx:if="{{selected}}"  src="{{imgUrlNew}}yy/vouchers/xzicon.png"/>
+          <image class="img" wx:else  src="{{imgUrlNew}}yy/vouchers/wxzicon.png"/>
+        </view>
+      </view>
+      <view class="list2">
+        <text class="left">
+          <text>运费</text>
+          <text class="little">(不可使用拾尚币抵扣)</text>
+        </text>
+        <text>¥ {{productDetails.freight==0?'免邮费': productDetails.freight}}</text>
+      </view>
+      <!-- 卡券 -->
+    <view wx:if="{{true}}"  class="vouchers">
+      <view class="address">
+        <image src="http://sbag-small.oss-cn-huhehaote.aliyuncs.com/upload/img/web/yy/appointment/coupons.png" mode="widthFix" />
+        <view class="title">可用权益</view>
+        <view bindtap="{{vou.length>0?'openVouList':''}}" class="usenum">
+          <text>{{vou.length>0?'您有权益可用':'无可用'}}   </text>
+          <image wx:if="{{vou.length>0}}" 
+          class="icon" 
+          src="http://sbag-small.oss-cn-huhehaote.aliyuncs.com/upload/img/web/yy/appointment/jt.png">
+          </image>
+        </view>
+      </view>
+      <view class="line"></view>
+      <view class="yixuan">
+        <text>已选</text>
+        <view class="yxz">
+          <view class="smq" ></view>
+          <view class="smq" wx:if="{{weightId==1}}"></view>
+          <view class="smq2" wx:if="{{vouChoosed}}"   bindtap="delVou" >
+            <text>{{vouChoosed.couponName}}</text>
+            <image bindtap="delVou" src="http://sbag-small.oss-cn-huhehaote.aliyuncs.com/upload/img/web/yy/appointment/closeicon.png"></image>
+          </view>
+          <!-- <view class="smq">上门券</view>
+          <view class="smq2">
+            <text>纸板价格+50%</text>
+            <image src="http://sbag-small.oss-cn-huhehaote.aliyuncs.com/upload/img/web/yy/appointment/closeicon.png"></image>
+          </view> -->
+        </view>
+      </view>
+    </view>
+    </view>
+  </view>
+  <view class="btns">
+    <text>合计: ¥ {{money}}</text>
+    <button class="btn" bindtap="order" wx:if="{{status}}">提交订单</button>
+    <button class="btn" loading="true" wx:else>提交订单</button>
+  </view>
+</view>
+
+
+<!-- 选择权益优惠券 -->
+  <view wx:if="{{isShowVouList}}" class="voucherList">
+    <view class="main">
+      <image bindtap="closeVouList" class="gbicon" src="http://sbag-small.oss-cn-huhehaote.aliyuncs.com/upload/img/web/yy/vouchers/gbicon.png"></image>
+      <view class="vouhead">
+        选择权益
+      </view>
+      <view class="content">
+        <view wx:for="{{vou}}" 
+              wx:key="index" 
+              class="vouItem" 
+              bindtap="chooseVou" 
+              data-index="{{index}}" 
+        >
+          <view class="sign">
+            <image wx:if="{{item.selected}}" class="stateIcon" src="{{imgUrlNew}}yy/vouchers/xzicon.png"/>
+            <image wx:else class="stateIcon" src="{{imgUrlNew}}yy/vouchers/wxzicon.png"/>
+            <image class="pic" src="{{item.pic}}"/>
+            <view class="info">
+              <view class="title">{{item.couponName}}</view>
+              <!-- <view class="title2">·{{item.description}}</view> -->
+              <view class="title2">·{{item.remark}}</view>
+              <view class="title2">·{{item.endDate}} 过期</view>
+            </view>
+          </view>
+          <!-- <view class="tips" wx:if="{{item.checked}}"><image mode="widthFix"  src="http://sbag-small.oss-cn-huhehaote.aliyuncs.com/upload/img/web/yy/vouchers/th.png"/>已选择同同类型卡券,不可叠加使用</view> -->
+        </view>
+      </view>
+      <view bindtap="closeVouList" class="footbtn">确认使用</view>
+    </view>
+  </view>

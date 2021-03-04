@@ -1,0 +1,39 @@
+<view class="page">
+  <image class="helpword" mode="widthFix" src="{{imgUrlNew}}yy/member/helpword.png"/>
+  <view class="content">
+    <image class="head"  wx:if="{{partyInfo&&partyInfo.headPortrait}}" mode="aspectFill" src="{{partyInfo&&partyInfo.headPortrait}}"/>
+    <image class="head" wx:else mode="aspectFill"  src="{{imgUrl}}home/12.png"/>
+    
+    <view class="title">{{partyInfo.nickName}}的环保团队</view>
+
+
+    <view class="p1">
+      我正在使用拾尚回收小程序， <text>\n</text>
+      快来加入我的环保团队，<text>\n</text>
+      “零丢弃”为地球家园“减负”<text>\n</text>
+    </view> 
+    <button size="default" type="primary" bindtap="join">戳我加入团队</button>
+  </view>
+</view>
+
+
+
+<!-- 蒙版授权登录 -->
+<view class="mask" wx:if="{{isAuth}}">
+  <view class="success_content">
+    <image class="bgmain" mode="widthFix" src="{{imgUrlNew}}yy/member/success2.png" alt="" />
+    <view class="p1">拾尚回收小程序申请获得以下权限</view>
+    <view class="p2">获得您的手机号码</view>
+    <button  lang="zh_CN" wx:if="{{autoDisplay}}" open-type="getPhoneNumber" bindgetphonenumber="onGetAuthorize">微信自动登录</button>
+    <button loading wx:else>微信自动登录</button>
+  </view>
+</view>
+<!-- 蒙版加入成功 -->
+<view class="mask" wx:if="{{success_mask}}">
+  <view class="success_content">
+    <view class="head">领取成功</view>
+    <image class="bgmain" mode="widthFix" src="{{imgUrlNew}}yy/member/join.png" alt="" />
+    <view class="p1">您已经成功加入</view>
+    <view class="p2">{{partyInfo.nickName}}的环保推广团</view>
+  </view>
+</view>

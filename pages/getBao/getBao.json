@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "获取拾尚包",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "my-component": "/components/custom-component/custom-component"
+  }
+}

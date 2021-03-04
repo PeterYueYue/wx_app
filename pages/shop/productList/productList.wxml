@@ -1,0 +1,32 @@
+<view class="page">
+
+  <view class="head">
+    <image class="pic" src="{{item.mainPic}}"/>
+  </view>
+  <view class="list">
+  
+    <view wx:for="{{productList.content}}" bindtap="goDetails" data-item="{{item}}" wx:key="index" class="subItem">
+      <view class="picBox">
+        <image class="over"  wx:if="{{item.stock==0}}" src="{{imgUrlNew+'yy/shop/over.png'}}" />
+        <view wx:if="{{item.tag}}" class="tag">{{item.tag}}</view>
+        <image class="pic" mode="aspectFill"   src="{{item.mainPic}}" ></image>
+        <view wx:if="{{item.remark}}" class="titleBox">
+          <view class="title">{{item.remark}}</view>
+        </view>
+      </view> 
+      <view class="name">{{item.name}}</view>
+      <view class="jifen">
+        <image src="{{imgUrlNew+'yy/shop/bi2.png'}}" />
+        <text>{{item.price}}</text>
+      </view>
+    
+    
+    </view>
+  
+  
+  </view>
+
+  <view class="footer">- 已经到底了 -</view>
+
+
+</view>

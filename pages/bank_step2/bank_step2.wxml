@@ -1,0 +1,13 @@
+<view class="page">
+  <view class="title">
+    <image mode="scaleToFill" src="{{imgUrl+'bank/2.png'}}" class="card" />
+    <text class="cardText">添加银行卡</text>
+  </view>
+  <view class="form">
+    <text class="form-name">银行预留手机号</text>
+    <view class="form-inp">
+      <input class="input phoneNum" type="text" placeholder="请输入" placeholder-style="placeholder" bindinput="change" data-id="1" />
+    </view>
+  </view>
+  <button class="new-add" bindtap="push">确定</button>
+</view>

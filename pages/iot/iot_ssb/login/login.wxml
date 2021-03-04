@@ -1,0 +1,61 @@
+<view class="page">
+
+  <view class="head">
+    <view class="progress">
+      <view class="line"></view>
+      <image  src="{{imgUrlNew}}yy/iot/ssb/point.png"  class="point" />
+    </view>
+    <view class="step_names">
+      <text>登录</text>
+      <text>开门</text>
+      <text>换袋</text>
+    </view>
+  </view>
+  <view class="content">
+    <view class="siteInfo">
+      <view class="title_box">
+        <image src="{{imgUrlNew}}yy/iot/ssb/positioning.png" ></image>
+        <text>海贝尔幼儿园自主交投点</text>
+      </view>
+      <view class="info_list">
+        <view class="item">
+          <view class="count">{{iot_data.cumulativeWeight}}</view>
+          <view class="name">累计回收量(kg)</view>
+        </view>
+        <view class="item">
+          <view class="count">{{iot_data.cumulativeNumberOfTraders}}</view>
+          <view class="name">累计交投人数</view>
+        </view>
+        <view class="item">
+          <view class="count">{{iot_data.cumulativeCarbonEmissionReduction}}</view>
+          <view class="name">累计减碳排放(kg)</view>
+        </view>
+      </view>
+      <view class="open_time">清运时间：周二、周四、周六</view>
+    </view>
+
+    <view class="operating_area">
+      <view class="title_box">
+        <image src="{{imgUrlNew}}yy/iot/ssb/title_left.png" ></image>
+        <text>点击按钮开始服务</text>
+        <image src="{{imgUrlNew}}yy/iot/ssb/title_right.png" ></image>
+      </view>
+      <view class="main_box">
+        <image bindtap="open_door" src="{{imgUrlNew}}yy/iot/ssb/opendoor.png"  ></image>
+        <button lang="zh_CN" wx:if="{{!userInfo}}" open-type="getPhoneNumber" bindgetphonenumber="onGetAuthorize" ></button>
+      </view>
+    </view>
+  </view>
+
+  <view bindtap="goLogin" class="staff">工作人员开门操作</view>
+
+</view>
+
+<view class="mask_" catchtap="close_binding_box" wx:if="{{isShowBinding}}">
+  <view  class="binding_box">
+    <image src="{{imgUrlNew}}yy/iot/ssb/binding.png" ></image>
+    <view class="title2">暂未绑定拾尚包，请绑定后操作</view>
+    <button catchtap="toBind" >绑定时尚包</button>
+  </view>
+  
+</view>

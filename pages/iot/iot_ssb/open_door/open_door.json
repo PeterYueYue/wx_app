@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "vou":"/components/vou/vou"
+  },
+  "navigationBarTitleText": "拾尚回收自主交投点"
+}

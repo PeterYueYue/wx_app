@@ -1,0 +1,54 @@
+page {
+  background-color: #fff;
+}
+.card{
+  width: 39.2rpx;
+  height: 29.6rpx;
+}
+.form{
+  height: 120rpx;
+  line-height: 120rpx;
+  position:relative;
+  border-bottom: 1rpx solid #ededed;
+}
+.form-name{
+  font-size: 28rpx;
+  color: #1A1A1A;
+  height: 120rpx;
+  margin-left: 32rpx;
+  font-weight: 600;
+}
+.form-inp{
+  position: absolute;
+  top: 20rpx;
+  right: 32rpx;
+  text-align: right;
+  
+}
+.placeholder{
+  font-size: 28rpx;
+  color: #ccc;
+  text-align: right;
+}
+.new-add{
+  width: 640rpx;
+  background: #3AA5FF;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 34rpx;
+  margin: auto;
+  margin-top: 222rpx
+}
+.title{
+  height: 100rpx;
+  line-height: 120rpx;
+  font-size: 30rpx;
+  color: #999;
+  padding-left: 30rpx;
+}
+.cardText{
+  margin-left: 14.8rpx;
+}
+.phoneNum{
+  width: 400rpx
+}

@@ -1,0 +1,94 @@
+<view  class="shopIndex" >
+  <!-- head start -->
+  <view style="background: url({{imgUrlNew+'yy/shop/bg1.png'}}) no-repeat;" class="head">
+    <view class="title">{{userInfoMore.residueMoney==undefined?"--":userInfoMore.residueMoney}}</view>
+    <view class="title1">我的拾尚币</view>
+  </view>
+  <!-- head end-->
+  <!-- navBox start -->
+  <view class="navBox">
+    <view bindtap="onClick" data-name="我的订单" class="item">
+      <image class="img" src="{{imgUrlNew+'yy/shop/order.png'}}" />
+      <text>我的订单</text>
+    </view>
+    <view  bindtap="onClick" data-name="券码兑换" class="item">
+      <image class="img" src="{{imgUrlNew+'yy/shop/duihuan.png'}}" />
+      <text>券码兑换</text>
+    </view>
+  </view>
+  <!-- navBox end -->
+  <!-- content start -->
+  <view class="content">
+
+    <!-- 轮播图 -->
+    <view wx:if="{{isItQualified}}" class="swiper-wrap">
+      <swiper class="swiper" indicator-dots="{{fasle}}" style="height:150px" class="swiper" previousMargin="0px" nextMargin="0px" autoplay="{{true}}" vertical="{{false}}" interval="{{3000}}" circular="{{true}}">
+        <swiper-item wx:key="index" wx:for="{{ 1 }}">
+          <view class="swiper-item" bindtap="onClick"  data-name="买三十送三十" data-id="{{item.id}}" data-flag="{{item.bannerFlag}}">
+            <image class="img" mode="widthFix" src="{{imgUrlNew+'yy/shop/cashbackbanner.png'}}" />
+            <!-- <image mode="aspectFill" src="{{item.picUrl}}" /> -->
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+    
+    <!-- 拾尚币兑换  start -->
+    <view bindtap="onClick"  data-name="拾尚币兑换" class="ssbExchange" style="background: url({{imgUrlNew+'yy/index/changeCoin.png'}}) no-repeat;" >
+      <image class="img"  mode="widthFix" src="{{imgUrlNew+'yy/shop/signIn/duihuanicon.png'}}" />
+    </view>
+
+
+
+    <!-- 拾尚币兑换 end -->
+
+    <!-- mainList start -->
+    <view class="mainList">
+      <view wx:for="{{productList}}" wx:key="index"  wx:if="{{item.productList.length>0}}"  class="item">
+        <view class="headBox">
+          <view class="left">
+            <view class="line"></view>
+            <view class="title">{{item.productType.name}}</view>
+          </view>
+          <view  bindtap="onClick" data-name="查看更多"  data-item="{{item}}" class="right">
+            <text>查看更多</text>
+            <text class="jiantou">></text>
+          </view>
+        
+        </view>
+        <view class="subList">
+
+          <view wx:for="{{item.productList}}" bindtap="onClick" data-name="商品详情" wx:key="index" data-item="{{item}}"   class="subItem">
+            <view class="picBox">
+            <image class="over"  wx:if="{{item.stock==0}}" src="{{imgUrlNew+'yy/shop/over.png'}}" />
+            <view wx:if="{{item.tag}}" class="tag">{{item.tag}}</view>
+              <image class="pic"  src="{{item.mainPic}}"  />
+              <view wx:if="{{item.remark}}" class="titleBox">
+                <view  class="title">{{item.remark}}</view>
+              </view>item
+            </view>
+            <view class="name">{{item.name}}</view>
+            <view class="jifen">
+              <image class="img" src="{{imgUrlNew+'yy/shop/bi1.png'}}" />
+              <text>{{item.price}}</text>
+            </view>
+          
+          
+          </view>
+        </view>
+      
+      
+      </view>
+
+    
+    
+    
+    </view>
+    <!-- mainList end -->
+
+  
+  </view>
+  <!-- content end -->
+
+
+
+</view>

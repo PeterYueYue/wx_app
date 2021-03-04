@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "环保账单",
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#3AA5FF",
+  "component": true,
+  "usingComponents": {
+    "ff-canvas": "../../../f2-canvas/f2-canvas"
+  }
+}

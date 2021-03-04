@@ -1,0 +1,28 @@
+<view class="page">
+  <view class="card">
+    <view class="main">
+      <image class="pic" src="{{det.pic}}" ></image>
+      <view class="info">
+        <view class="title">{{det.mainTitle}}</view>
+        <view class="title2">{{det.subtitle}}</view>
+        <view class="title2">{{det.validStart}}至{{det.validEnds}}</view>
+      </view>
+      <view class="status {{det.status !=1?'ysy':''}}">{{det.status == 1?'可使用':det.status == 2?'已使用':'已过期'}}</view>
+    </view>
+    <!-- 一维码展示 -->
+    <view class="codebox">
+      <canvas wx:if="{{det.status == 1}}" class="img" canvas-id="barcode" />
+      <image wx:if="{{det.status == 2||det.status == 3}}" class="img" src="{{imgUrlNew}}yy/dnActivity/deQrcode.png"></image>
+      <image class="statusIcon" wx:if="{{det.status == 2||det.status == 3}}" src="{{imgUrlNew}}yy/dnActivity/statusicon.png"></image>
+      <view class="num">{{det.cardCode}}</view>
+    </view>
+    <view class="detail">
+      <view class="title">·详情描述</view>
+      <view wx:for="{{item.describe}}">{{item}}</view>
+      <view wx:if="{{item.scope}}" class="title">·使用范围</view>
+      <text wx:if="{{item.scope}}">{{item.scope}}</text>
+      <view wx:if="{{item.beCareful}}" class="title">·注意事项</view>
+      <text wx:if="{{item.beCareful}}">{{item.beCareful}}</text>
+    </view>
+  </view>
+</view>

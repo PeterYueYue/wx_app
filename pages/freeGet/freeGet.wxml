@@ -1,0 +1,46 @@
+<!-- 购买拾尚包 -->
+<view class="page">
+  <view class="bag">
+    <image src="{{imgUrl}}bag/10.png" mode="widthFix" />
+  </view>
+  <!-- 选择后地址 -->
+  <view class="add1" wx:if="{{addressStatus}}" bindtap="toAddress">
+    <!-- <view class="fl1">
+       <view>已选择上门地址</view>
+       <text class="fa fa-angle-right r" aria-hidden="true"></text>
+     </view> -->
+    <cover-image style="width:29.6rpx;height:35.6rpx" src="{{imgUrl}}15.png" />
+    <view class="fl2">
+      <text class="name inlineBlock ell">{{add.userName}}</text>
+      <text class="fa fa-angle-right r" aria-hidden="true"></text>
+      <text class="mobile r">{{add.userMobile}}</text>
+
+    </view>
+    <view class="adds ell">{{add.provinceName + add.cityName + add.areaName + add.address}}</view>
+  </view>
+  <!-- 选择前地址 -->
+  <view wx:else class="address clear" bindtap="toAddress">
+    <image src="{{imgUrl}}bag/5.png" mode="widthFix" />
+    <view>请选择上门地址</view>
+    <text class="fa fa-angle-right r" aria-hidden="true"></text>
+  </view>
+  <view class="bulletincd" wx:if="{{flag}}">
+    <image class="countdown" mode="scaleToFill" src="{{imgUrl}}order/countdown.png" />
+    <view class="time">
+      {{countdown}}
+    </view>
+    <view class="time_t">
+      限时免费即将截止！赶紧领取吧！
+    </view>
+    <image class="arrow" mode="scaleToFill" src="{{imgUrl}}order/arrow.png" />
+  </view>
+  <view class="get">
+    <view wx:if="{{userInfo.nickName!=null}}" bindtap="freeGet" data-status="1" class="active1 {{!addressStatus ? 'unactive' : ''}}">现场领取</view>
+    <button wx:else class="active1 {{!addressStatus ? 'unactive' : ''}}" data-status="1" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"> 现场领取</button>
+    <view wx:if="{{userInfo.nickName!=null}}" bindtap="freeGet" data-status="2" class="active2 {{!addressStatus ? 'unactive' : ''}}">免费邮寄</view>
+    <button wx:else class="active2 {{!addressStatus ? 'unactive' : ''}}" data-status="2" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"> 免费邮寄</button>
+  </view>
+  <!-- <view class="banka" bindtap="banka">
+    <image mode="widthFix" src="{{imgUrl}}/bag/banka.png" />
+  </view> -->
+</view>

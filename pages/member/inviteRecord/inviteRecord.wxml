@@ -1,0 +1,49 @@
+<view class="page">
+   <view class="tabs">
+    <view class="{{activeTab==0?'tab_active':''}}" data-index="0" bindtap="tab">我邀请的人</view>
+    <view class="{{activeTab==1?'tab_active':''}}" data-index="1" bindtap="tab">邀请我的人</view>
+  </view>
+  <view class="swiper-wrap ">
+
+    
+    <swiper
+        indicator-dots = "{{false}}" class="swiper" current="{{current}}" onChange="onChange" previousMargin="0px" nextMargin="0px" autoplay="{{false}}" vertical="{{false}}" circular="{{false}}">
+      <!-- 我邀请的人 -->
+      <swiper-item>
+        <view class="hint" wx:if="{{list1.length<1}}">
+          <image mode="widthFix" src="{{imgUrl}}bao/10.png" />
+          <text>没有更多数据</text>
+        </view>
+
+        <scroll-view scroll-y="{{true}}" onScrollToLower="lower">
+         <view class="list" wx:for="{{list1}}" wx:key="index">
+            <image  class="number"  src="{{item.headPortrait}}"/>
+            <view class="name">
+              <view>{{item.nickName}}</view>
+              <view>{{item.createDate}}</view>
+            </view>
+            <view class="coin">+{{item.point}}拾尚币</view>
+         </view>
+        </scroll-view>
+      </swiper-item> 
+      
+      <!-- 邀请我的人 -->
+      <swiper-item>
+        <view class="hint" wx:if="{{list2.length<1}}">
+          <image mode="widthFix" src="{{imgUrl}}bao/10.png" />
+          <text>没有更多数据</text>
+        </view>
+        <scroll-view scroll-y="{{true}}" onScrollToLower="lower">
+          <view class="list" wx:for="{{list2}}" wx:key="index">
+            <image  class="number"  src="{{item.headPortrait}}"/>
+            <view class="name">
+              <view>{{item.groupName}}</view>
+              <view>{{item.createDate}}</view>
+            </view>
+            <view class="coin">团队收益 <text>\n</text>+{{item.point}}拾尚币</view>
+         </view>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

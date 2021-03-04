@@ -1,0 +1,114 @@
+<view class="page">
+  <!-- <tabs tabs="{{tabs}}" activeTab="{{activeTab}}" onTabClick="handleTabClick" onChange="handleTabChange"
+    activeCls="tabClick" tabBarCls="tabs" tabBarActiveTextColor="#1A1A1A">
+    <block wx:for="{{tabs}}">
+      <tab-content key="{{index}}"> -->
+  <van-tabs active="{{activeTab}}" bind:change="handleTabClick" animated swipeable tab-class="tab"
+    tab-active-class="active" bind:change="handleTabChange">
+    <van-tab wx:for="{{tabs}}" wx:key="index" title="{{item.title}}">
+      <scroll-view scroll-y="{{true}}" bindscrolltolower="lower" class="tab-content">
+        <view wx:if="{{activeTab == 0}}">
+          <view class="hint" wx:if="{{list1Length == 1}}">
+            <image mode="widthFix" src="{{imgUrl}}bao/10.png" />
+            <text>没有数据</text>
+          </view>
+          <view wx:else>
+            <view wx:for="{{list1}}" wx:key="index" class="order">
+              <view class="orderTop">
+                <view class="orderTopLeft">
+                  <cover-image style="width:44rpx;height:44rpx" src="{{imgUrl}}11.png" />
+                </view>
+                <view class="orderTopRight">
+                  <view class="tr1">
+                    提现金额
+                    <text>{{item.withdrawMoney}}元</text>
+                  </view>
+                  <view class="tr2">
+                    <text>申请时间：{{item.createDate}}</text>
+                    <text class="blue">待审批</text>
+                  </view>
+                  <view class="tr3">
+                    <text>申请部门：{{item.departmentName}}</text>
+                  </view>
+                </view>
+              </view>
+              <view class="orderBottom">
+                <view bindtap="approve" data-type="1" data-id="{{item.id}}">通过</view>
+                <view bindtap="approve" data-type="2" data-id="{{item.id}}">不通过</view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+        <view wx:elif="{{activeTab == 1}}">
+          <view class="hint" wx:if="{{list2Length == 1}}">
+            <image mode="widthFix" src="{{imgUrl}}bao/10.png" />
+            <text>没有数据</text>
+          </view>
+          <view wx:else>
+            <view wx:for="{{list2}}" wx:key="key" class="order borderBottom">
+              <view class="orderTop">
+                <view class="orderTopLeft">
+                  <cover-image style="width:44rpx;height:44rpx" src="{{imgUrl}}11.png" />
+                </view>
+                <view class="orderTopRight">
+                  <view class="tr1">
+                    提现金额
+                    <text>{{item.withdrawMoney}}元</text>
+                  </view>
+                  <view class="tr2">
+                    <text>申请时间：{{item.createDate}}</text>
+                    <text wx:if="{{item.companyState==2}}" class="blue">通过</text>
+                    <text wx:elif="{{item.companyState==3}}" class="gray">不通过</text>
+                  </view>
+                  <view class="tr3">
+                    <text>申请部门：{{item.departmentName}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+        <view wx:else>
+          <view class="hint" wx:if="{{list3Length == 1}}">
+            <image mode="widthFix" src="{{imgUrl}}bao/10.png" />
+            <text>没有数据</text>
+          </view>
+          <view wx:else>
+            <view wx:for="{{list3}}" wx:key="index" class="order {{item.companyState==1?'':'borderBottom'}}">
+              <view class="orderTop">
+                <view class="orderTopLeft">
+                  <cover-image style="width:44rpx;height:44rpx" src="{{imgUrl}}11.png" />
+                </view>
+                <view class="orderTopRight">
+                  <view class="tr1">
+                    提现金额
+                    <text>{{item.withdrawMoney}}元</text>
+                  </view>
+                  <view class="tr2">
+                    <text>申请时间：{{item.createDate}}</text>
+                    <text wx:if="{{item.companyState==1}}" class="blue">待审批</text>
+                    <text wx:elif="{{item.companyState==2}}" class="blue">通过</text>
+                    <text wx:elif="{{item.companyState==3}}" class="gray">不通过</text>
+                  </view>
+                  <view class="tr3">
+                    <text>申请部门：{{item.departmentName}}</text>
+                  </view>
+                </view>
+              </view>
+              <view class="orderBottom" wx:if="{{item.companyState==1}}">
+                <view>查看</view>
+                <view>删除</view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </scroll-view>
+    </van-tab>
+  </van-tabs>
+  <!-- </tab-content>
+    </block>
+  </tabs> -->
+</view>

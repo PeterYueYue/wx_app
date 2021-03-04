@@ -1,0 +1,14 @@
+<view class="page">
+  <view class="box box1">
+    <image   mode="widthFix" class="img1" src="{{imgUrlNew}}yy/dnActivity/bg17.png" alt=""/>
+    <view bindtap="getCoupons" class="btnbox1">
+    </view>
+  </view>
+  <view class="box box2">
+    <image class="img2" src="{{imgUrlNew}}yy/dnActivity/bg14.png" alt=""/>
+    <view class="btnbox2"></view>
+    <button  bindtap="goMember" class="btnbox2">领取脉动限量拾尚包</button>
+  </view>
+</view>
+
+

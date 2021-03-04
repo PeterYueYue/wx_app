@@ -1,0 +1,17 @@
+<view>
+  <view class="hint" wx:if="{{status == 1}}">
+    <image mode="widthFix" src="{{imgUrl}}bao/10.png" />
+    <text>没有错误投递记录</text>
+  </view>
+  <!-- 前面的图片 -->
+  <view class="page" wx:for="{{user}}" wx:key="index" bindtap="toDetail" data-status='{{item.recycleState}}' data-id='{{item.id}}' data-name='回收'>
+    <image mode="widthFix" src="{{imgUrl+'order/25.png'}}" class="img"/>
+    <!-- 文字部分 -->
+    <view class="text1">
+      <view class="num">回收订单编号：{{item.orderCode}}</view>
+      <view class="time">绑定时间：   {{item.createDate}}</view>
+      <text class="kg">错误投递总量：{{item.errorWeight}}公斤</text>
+    </view>
+    <view class="more">查看详情</view>
+  </view>
+</view>

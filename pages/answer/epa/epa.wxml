@@ -1,0 +1,69 @@
+<view class="page">
+  <view class="task">
+    <image src="https://sbag-small.oss-cn-huhehaote.aliyuncs.com/upload/img/web/yy/answer/rw.png" class="title1"></image>
+    <view>答对3道题</view>
+  </view>
+  <view class="results">
+    <image src="https://sbag-small.oss-cn-huhehaote.aliyuncs.com/upload/img/web/yy/answer/fs.png" class="title1"></image>
+    <view>已对<text>{{(scount)}}</text>道题</view>
+  </view>
+  <!-- content -->
+  <view class="content">
+    <view class="bg"></view>
+    <view class="main">
+      <!-- 倒计时 -->
+      <view class="countDown">
+        <view class="container">
+            <view class='progress_box'>
+                <canvas class="progress_bg"   canvas-id="canvasProgressbg">  </canvas> 
+                <canvas class="progress_canvas" canvas-id="canvasProgress"></canvas>
+                <view class="progress_txt">{{(index+1)}}/{{qlist.length}}</view>
+            </view>
+        </view>
+      </view>
+      <view class="titleBox">
+        <view class="line"></view>
+        <view class="text">{{qlist[index].questionStem.text}}</view>
+      </view>
+      
+      <view 
+        wx:for="{{qlist[index].optionList}}"
+        bindtap="changeState"
+        data-data="{{item}}" 
+        data-index_="{{index}}" 
+        class="btn {{item.state == 'd'?'success':item.state == 'cw'?'error':'none'}} ">
+        <view class="opt">{{item.prefix}}：</view>
+        <text>{{item.text}}</text>
+        <view class="{{item.state == 'd'?'dh':item.state == 'cw'?'close':''}}"></view>
+      </view>
+      <view wx:if="{{prefix != ''}}" class="tips">回答错误！正确答案：{{right}}</view>
+      <view wx:if="{{index < qlist.length - 1}}" bindtap="changeIndex" class="next">点击进入下一题</view>
+    </view>
+
+  </view>
+
+</view>
+<!-- 答题结果弹窗 -->
+
+<view wx:if="{{isOpenMask}}" class="mask">
+  <view class="box">
+    <image 
+      class="img" 
+      wx:if="{{resState == 'N'}}"
+      mode="heightFix" 
+      src="{{imgUrlNew}}yy/answer/hyh.png"
+    ></image>
+    <image 
+      class="img" 
+      wx:if="{{resState == 'Y'}}" 
+      mode="heightFix" 
+      src="{{imgUrlNew}}yy/answer/gxn.png"
+    ></image>
+    <view class="title">{{resState == 'Y'?'答题成功':resState == 'N'?'答题失败':''}}</view>
+    <view class="box2">
+      <view wx:if="{{resState == 'N'}}" bindtap="goRule" class="btn">查看题库</view>
+      <view bindtap="goAgain" wx:if="{{resState == 'N'}}" class="btn active">重新解答</view>
+      <view bindtap="getbao" wx:if="{{resState == 'Y'}}" class="chenggong">领取拾尚包</view>
+    </view>
+  </view>
+</view>

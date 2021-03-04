@@ -1,0 +1,214 @@
+<view class="index_page">
+  <!-- 个人 -->
+  <view wx:if="{{userInfo.userFlag===1}}">
+    <view class="top">
+      <image class="imgTop" mode="widthFix" src="{{imgUrlNew}}yy/newIndex/wx_top1.png" />
+      <view class="msg" wx:if="{{userInfo.id}}" catchtap="goMember">
+        <view class="avatarbox">
+          <image class="avatar"  src="{{userInfo.headPortrait}}"/>
+          <image class="level_pic"wx:if="{{userInfoMore.carbonReducingLevel}}"  mode="widthFix" src="{{imgUrlNew}}yy/member/L{{userInfoMore.carbonReducingLevel.level}}.png"/>
+        </view>
+        <view class="infobox">
+          <view class="name">{{userInfo.nickName}}</view>
+          <view class="experience">环保经验:{{userInfoMore.carbonReducing}}/{{userInfoMore.carbonReducingLevel.levelPoint}}</view>
+          <view class="progressBox">
+            <view class="line" style="width:{{userInfoMore.carbonReducing/(userInfoMore.carbonReducingLevel.levelPoint*1)*100}}%"></view>
+          </view>
+        </view>
+        <view class="couponbox" style="background-image: url({{couponbox}})" catchtap="lookCoupon">
+          {{userInfoMore.voucherCount}} 张卡券
+        </view>
+      </view>
+      <view bindtap="goMember" class="msg" wx:else>
+        <view class="uninfobox">
+          <view class="name">成为拾尚会员，开始环保回收～</view>
+          <view class="experience">每次回收都可以积累环保等级哦！</view>
+        </view>
+        <view class="couponbox" style="background-image: url({{couponbox}})">
+          成为会员
+        </view>
+      </view>
+      <view class="topbottom"></view>
+    </view>
+    <!--广播 -->
+    <view class="guangbo">
+      <image class="lb" src="{{imgUrlNew}}yy/newIndex/tips.png" />
+      <swiper indicator-dots="{{false}}" autoplay="{{true}}" vertical="{{true}}" circular="{{true}}" interval="2000" duration="500">
+        <block wx:for="{{noticeList}}" a:key="{{index}}">
+          <swiper-item>
+            <view class="item">{{item.content}}</view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!--导航区域-->
+    <view class="nav-wrap">
+      <view class="nav">
+        <view class="item" bindtap="appointment">
+          <image src="{{imgUrlNew}}yy/newIndex/a1.png" class="nav-img" mode="widthFix" />
+          <view>预约回收</view>
+        </view>
+        <view class="item " bindtap="donate">
+          <image src="{{imgUrlNew}}yy/newIndex/a2.png" class="nav-img" mode="widthFix" />
+          <view>爱心捐赠</view>
+        </view>
+        <view class="item" bindtap="goproducts">
+          <image src="{{imgUrlNew}}yy/newIndex/a3.png" class="nav-img" mode="widthFix" />
+          <view>福利中心</view>
+        </view>
+      </view>
+    </view>
+    <!-- 轮播图 -->
+    <view class="swiper-wrap">
+      <swiper indicator-dots="{{true}}" style="height:150px" class="swiper" previousMargin="0px" nextMargin="0px" autoplay="{{true}}" vertical="{{false}}" interval="{{3000}}" circular="{{true}}">
+        <swiper-item wx:if="{{userInfo.userFlag==1 && bagCount > -1}}">
+          <view class="swiper-item" bindtap="godnlog">
+            <image mode="aspectFill" src="https://sbag-small.oss-cn-huhehaote.aliyuncs.com/upload/img/web/yy/dnActivity/banner.png" />
+          </view>
+        </swiper-item>
+        <swiper-item a:key="index" wx:for="{{ background }}">
+          <view class="swiper-item" bindtap="gobanner" data-url="{{item.url}}" data-id="{{item.id}}" data-flag="{{item.bannerFlag}}">
+            <image mode="aspectFill" src="{{item.picUrl}}" />
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+    <!-- 拾尚互动 -->
+    <view class="interaction">
+      <view class="head">
+        <text></text> 拾尚互动
+      </view>
+      <view class="flex">
+        <view class="item" bindtap="goSignin" data-name="签到中心">
+          <image src="{{imgUrlNew}}yy/newIndex/b1.png" class="nav-img" mode="widthFix" />
+        </view>
+        <view class="item" bindtap="goZddlu">
+          <image src="{{imgUrlNew}}yy/newIndex/b2.png" class="nav-img" mode="widthFix" />
+          <view class="begin" wx:if="{{!isActivity}}">
+            <text>距开始:</text>
+            <text class="timeitem">{{ timeObj.h }}</text>
+            <text class="mh">:</text>
+            <text class="timeitem">{{ timeObj.m }}</text>
+            <text class="mh">:</text>
+            <text class="timeitem">{{ timeObj.s }}</text>
+          </view>
+          <view class="begin" wx:else>活动正在进行中！</view>
+        </view>
+        <view class="item" bindtap="goRank">
+          <image src="{{imgUrlNew}}yy/newIndex/b3.png" class="nav-img" mode="widthFix" />
+          <view class="people">
+            <text>{{totalGroupNo}}</text> 人已开团
+            <text>\n</text>邀请伙伴共享收益
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 详情了解 -->
+    <view class="rule">
+      <image bindtap="rule" src="{{imgUrlNew}}yy/newIndex/r1.png" class="nav-img" mode="widthFix" />
+      <image bindtap="step" src="{{imgUrlNew}}yy/newIndex/r2.png" class="nav-img" mode="widthFix" />
+      <image bindtap="sort" src="{{imgUrlNew}}yy/newIndex/r3.png" class="nav-img" mode="widthFix" />
+      <image bindtap="site" src="{{imgUrlNew}}yy/newIndex/r4.png" class="nav-img" mode="widthFix" />
+    </view>
+    <!-- 公众号  -->
+    <view class="gzh"  wx:if="{{userInfo.userFlag==1}}" bindtap="goGzh">
+      <!-- <official-account bindload="bindload" binderror="binderror"></official-account> -->
+      <image src="{{imgUrlNew}}yy/index/gzhIcon.png" />
+      <text>拾尚包公众号</text>
+      <view class="chakan">查看</view>
+    </view>
+
+
+
+  </view>
+  <view wx:if="{{userInfo.userFlag===2 || userInfo.userFlag===3}}">
+    <!--导航区域 企业-->
+    <view class="mt200"></view>
+    <view class="swiper-wrap">
+      <swiper indicator-dots="{{true}}" style="height:150px" class="swiper" previousMargin="0px" nextMargin="0px" autoplay="{{true}}" vertical="{{false}}" interval="{{3000}}" circular="{{true}}">
+        <swiper-item wx:if="{{userInfo.userFlag==1 && bagCount > -1}}">
+          <view class="swiper-item" bindtap="godnlog">
+            <image mode="aspectFill" src="https://sbag-small.oss-cn-huhehaote.aliyuncs.com/upload/img/web/yy/dnActivity/banner.png" />
+          </view>
+        </swiper-item>
+        <swiper-item a:key="index" wx:for="{{ background }}">
+          <view class="swiper-item" bindtap="gobanner" data-url="{{item.url}}" data-id="{{item.id}}" data-flag="{{item.bannerFlag}}">
+            <image mode="aspectFill" src="{{item.picUrl}}" />
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class="nav-wrap">
+      <view class="nav nav_qiye">
+        <view class="item" bindtap="appointment" wx:if="{{ userInfo.userFlag !== 3 }}">
+          <image src="{{imgUrl+ '3.png'}}" mode="widthFix" class="nav-img" />
+          <view>预约</view>
+        </view>
+        <view class="item" bindtap="gotiXian">
+          <image src="{{imgUrl+ '2.png'}}" mode="widthFix" class="nav-img" />
+          <view>提现</view>
+        </view>
+      </view>
+    </view>
+    <!--机构排行 企业-->
+    <view class="media clear rank-wrap" wx:if="{{userInfo.userFlag===2 || userInfo.userFlag===3}}">
+      <view class="media-head">机构排行</view>
+      <view class="rank" bindtap="rank">
+        <image mode="widthFix" src="{{imgUrl+'b/jigou.png'}}" style="border-radius:10rpx;" />
+      </view>
+    </view>
+  </view>
+  <!--共有 -->
+  <view class="hotbox marginTop40">
+    <image src="{{imgUrlNew}}yy/index/202005083.png" />
+    <view class="title">媒体报道</view>
+  </view>
+  <view class="media clear">
+    <view class="list" wx:for="{{ media }}" data-url="{{ item.url }}" data-mediaFlag="{{ item.mediaFlag }}" data-id="{{ item.id }}" a:key="index" bindtap="information">
+      <image class="mediaImg" mode="aspectFill" src="{{item.picUrl}}" />
+      <view class="detail">{{ item.title }}</view>
+    </view>
+  </view>
+</view>
+<!-- ************************************************************************************************************************************ -->
+<!-- 以下蒙版 -->
+<!--无上门券提示 -->
+<view class="mask_" wx:if="{{show_door}}">
+  <image bindtap="getdoor" class="img" mode="widthFix" src="{{imgUrlNew}}yy/shop/check_door.png" />
+  <image bindtap="closemask_" class="close" mode="widthFix" src="{{imgUrlNew}}yy/x.png" />
+</view>
+<!-- 公告通知   通过后台接口配置 -->
+<view class="mask_" wx:if="{{popWindowsBool}}">
+  <image bindtap="getdoor" class="img" mode="widthFix" src="{{popWindowsObj.pic}}" />
+  <image bindtap="closePop" class="close" mode="widthFix" src="{{imgUrlNew}}yy/x.png" />
+</view>
+
+
+<!-- 补发优惠券 -->
+<view class="mask bufa" bindtap="closemask_a" wx:if="{{isHasVou}}">
+  <view class="box2">
+    <image bindtap="useVou" class="check_doorPIc" mode="widthFix" src="{{imgUrlNew}}yy/index/hasVou.png" />
+    <image bindtap="closeVou" class="deleteIcon" mode="widthFix" src="{{imgUrlNew}}yy/x.png" />
+  </view>
+</view>
+<vou wx:if="{{ orderId }}"
+userInfo = "{{userInfo}}" isShowVouList="{{isShowVouList}}" on:closeVou="closeVou" orderId="{{orderId}}">
+</vou>
+<!-- 年度账单c端 -->
+<view class="mask_ bill " bindtap="closebill" wx:if="{{annualBill &&userInfo.userFlag==1}}">
+  <view class="billbox">
+    <image bindtap="gobill"  class="check_doorPIc" mode="widthFix" src="{{imgUrlNew}}yy/bill/indexshare.png" />
+    <view>
+      <image bindtap="closebill"  class="deleteIcon" mode="widthFix" src="{{imgUrlNew}}yy/x.png" />
+    </view>
+  </view>
+</view>
+<!-- 年度账单b端 -->
+<view class="mask_ bill" bindtap="closebill" wx:if="{{annualBill &&userInfo.userFlag==2}}">
+  <view class="billbox">
+    <image bindtap="gobill"  class="check_doorPIc" mode="widthFix" src="{{imgUrlNew}}yy/bill/indexshareb.png" />
+    <view>
+      <image bindtap="closebill"  class="deleteIcon" mode="widthFix" src="{{imgUrlNew}}yy/x.png" />
+    </view>
+  </view>
+</view>

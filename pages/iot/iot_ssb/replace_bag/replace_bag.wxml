@@ -1,0 +1,41 @@
+<view class="page">
+
+  <view class="head">
+    <view class="progress">
+      <view class="line"></view>
+      <image src="{{imgUrlNew}}yy/iot/ssb/point.png" class="point" />
+    </view>
+    <view class="step_names">
+      <text>登录</text>
+      <text>开门</text>
+      <text class="active">换袋</text>
+    </view>
+  </view>
+  <view class="content">
+    <!-- 扫码绑定袋子 -->
+    <view wx:if="{{is_scan}}" class="main">
+      <image class="img1" src="{{imgUrlNew}}yy/iot/ssb/img1.png"  />
+      <view class="title_box">
+        <image src="{{imgUrlNew}}yy/iot/ssb/title_left.png" ></image>
+        <text>扫码绑定新的拾尚包</text>
+        <image src="{{imgUrlNew}}yy/iot/ssb/title_right.png" ></image>
+      </view>
+      <image bindtap="toBind" class="scan_icon" src="{{imgUrlNew}}yy/iot/ssb/scan_icon.png"  />
+    </view>
+    <!-- 交投成功 -->
+    <view wx:if="{{!is_scan}}" class="main">
+      <image class="img2" src="{{imgUrlNew}}yy/iot/ssb/thankyou.png"  />
+      <view class="title_box">
+        <image class="suc_icon" src="{{imgUrlNew}}yy/iot/ssb/suc_icon.png" ></image>
+        <view>交投成功</view>
+      </view>
+      <view class="tips">请有序堆放拾尚包，自觉遵守换袋规则</view>
+      <view class="tips2">（一次领取一个拾尚包）</view>
+      <view bindtap="changeIsScan" class="btn">换袋</view>
+    </view>
+
+
+  </view>
+
+
+</view>

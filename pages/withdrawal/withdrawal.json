@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "兑换",
+  "usingComponents": {
+    "my-component": "/components/custom-component/custom-component"
+  }
+}

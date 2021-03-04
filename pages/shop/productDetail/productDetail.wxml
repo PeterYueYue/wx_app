@@ -1,0 +1,97 @@
+<view class="page">
+  <!-- 头部轮播图 -->
+  <view class="head">
+    <view class="swiper-wrap">
+      <swiper indicator-dots="{{true}}" style="height:750rpx;width:750rpx;" class="swiper" previousMargin="0px" nextMargin="0px" autoplay="{{true}}" vertical="{{false}}" interval="{{3000}}" circular="{{true}}">
+        <swiper-item wx:key="index" wx:for="{{productDetails.productThumbList}}">
+          <view class="swiper-item" bindtap="gobanner" data-url="{{item.url}}" data-id="{{item.id}}" data-flag="{{item.bannerFlag}}">
+            <image mode="aspectFill"    class="bannerimg" src="{{item.pic}}" ></image>
+            <!-- <image mode="aspectFill" src="{{item.picUrl}}" /> -->
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+  <!-- info -->
+  <view class="infoBox">
+    <view class="iconBox">
+      <view class="tag">
+        {{productDetails.typeName}}
+      </view>
+    </view>
+    <view class="info">
+      <view class="title">{{productDetails.name}}</view>
+      <view class="tags">
+        <text >{{productDetails.remark?productDetails.remark:''}}</text>
+        <!-- <view class="fenxiang">
+          <image src="{{imgUrlNew+'yy/shop/fxicon.png'}}" />
+          <text >分享</text>
+          <button  id ="share" open-type="share" class="sharebtn">分享给好友</button >
+        </view> -->
+      </view>
+      <view class="jifen">
+        <image src="{{imgUrlNew+'yy/shop/bi2.png'}}" />
+        <text>{{productDetails.price}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 支持 -->
+  <view wx:if="{{productDetails.supports.length>0}}" bindtap="onTopBtnTap" class="zhichi">
+    <view class="left">支持：</view>
+    <view class="list">
+      <view wx:for="{{productDetails.supports}}" wx:key="index" class="item">
+        <view class="point"></view>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+    <view class="arrow"></view>
+  </view>
+ 
+  <!-- 详情图 -->
+  <image  wx:for="{{productDetails.descriptions}}" 
+          wx:key="index"  
+          mode="widthFix"   
+          class="detailImg" 
+          src="{{item}}" />
+  <!-- 商品说明 -->
+  <view wx:if="{{productDetails.useInstructions}}" class="shuomin">
+    <view class="head">
+      <view class="line"></view>
+      <view class="title">使用说明</view>
+      
+    </view>
+    <view class="text">{{productDetails.useInstructions}}</view>
+  </view>
+<view class="btn" bindtap="goOrder">立即兑换</view>
+
+</view>
+
+
+<view class="popup {{showTop?'popActive':''}}"   bindtap="onPopupClose">
+  <view    class="box  {{showTop?'active':''}}" >
+    <view class="contentTitle">
+      <view class="line">-</view>
+      <view>支持</view>
+      <view class="line">-</view>
+    </view>
+    <view class="list">
+      <!-- <view class="item">
+      <view class="title">
+        <view class="point"></view>
+        <view>包邮</view>
+      </view>
+      <view class="info">该商品享受包邮服务</view>
+    </view> -->
+    <view wx:for="{{productDetails.supports}}" wx:key="index" class="item">
+      <view class="title">
+        <view class="point"></view>
+        <view>{{item.name}}</view>
+      </view>
+      <view class="info">{{item.remark}}</view>
+    </view>
+    
+    </view>
+    
+    
+  </view>
+</view>

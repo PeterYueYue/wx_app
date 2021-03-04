@@ -1,0 +1,55 @@
+.page {
+  background: #ffffff;
+  width: 100%;
+  min-height: 100vh
+}
+.card{
+  width: 39.2rpx;
+  height: 29.6rpx;
+}
+.title{
+  height: 100rpx;
+  line-height: 120rpx;
+  font-size: 30rpx;
+  color: #999;
+  padding-left: 30rpx;
+}
+.cardText{
+  margin-left: 14.8rpx;
+}
+.list{
+  width: 100%;
+  height: 120rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #EBEBEB;
+  display: flex;
+  align-items: center;
+}
+.list input{
+  width: 440rpx;
+  margin-left: 32rpx
+}
+.placeholder{
+  font-size: 32rpx;
+  color: #B3B3B3;
+}
+.code1{
+  color: #3AA5FF;
+  text-align: right;
+  width: 200rpx;
+  font-size: 32rpx;
+  text-indent: 40rpx;
+}
+.gray{
+  color: gray;
+  text-align: center
+}
+.new-add{
+  width: 640rpx;
+  background: #3AA5FF;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 34rpx;
+  margin: auto;
+  margin-top: 222rpx
+}

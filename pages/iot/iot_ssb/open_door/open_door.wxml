@@ -1,0 +1,91 @@
+<view class="page">
+
+<view class="head">
+  <view class="progress">
+    <view class="line"></view>
+    <image src="{{imgUrlNew}}yy/iot/ssb/point.png" class="point" />
+  </view>
+  <view class="step_names">
+    <text>登录</text>
+    <text class="active">开门</text>
+    <text >换袋</text>
+  </view>
+</view>
+<view class="content">
+  <!-- 输入预估重量 -->
+  <view wx:if="{{step == 2}}" class="main">
+    <image class="img1" src="{{imgUrlNew}}yy/iot/ssb/img2.png"  />
+    <view class="title_box">
+      <image src="{{imgUrlNew}}yy/iot/ssb/title_left.png" ></image>
+      <text>输入预估重量</text>
+      <image src="{{imgUrlNew}}yy/iot/ssb/title_right.png" ></image>
+    </view>
+    <view class="input_box">
+      <input bindinput="changeWeight" type="number"  placeholder="请输入"  value="{{weight}}"   />
+      <text>kg</text>
+    </view>
+    <view class="btns">
+      <view bindtap="defaultWeight" data-data="3" class="btn_left button">默认重量(5kg)</view>
+      <view bindtap="changeStep" data-data="3" class="btn_right button">下一步</view>
+    </view>
+  </view>
+  <!-- 选择袋子 -->
+  <view wx:if="{{step == 1}}" class="main">
+    <image class="img1" src="{{imgUrlNew}}yy/iot/ssb/img2.png"  />
+    <view class="title_box">
+      <image src="{{imgUrlNew}}yy/iot/ssb/title_left.png" ></image>
+      <text>选择当前需要交投的拾尚包</text>
+      <image src="{{imgUrlNew}}yy/iot/ssb/title_right.png" ></image>
+    </view>
+    <view class="bag_code_list">
+      <view wx:for="{{bag_list}}" bindtap="changeBagCode" data-data="{{index}}" class="code_item">
+        <image src="{{imgUrlNew}}yy/iot/ssb/{{bagCode_index == index?'active':'unactive'}}.png" ></image>
+        <text>{{item.bagCode}}</text>
+      </view>
+      
+      
+    </view>
+    
+    <view class="btns">
+      <view bindtap="changeStep" data-data="2" class="next_btn">下一步</view>
+    </view>
+  </view>
+  <!-- 选择权益 -->
+  <view wx:if="{{step == 3}}" class="main">
+    <image class="img3" src="{{imgUrlNew}}yy/iot/ssb/img3.png"  />
+    <view class="title_box mt50">
+      <image src="{{imgUrlNew}}yy/iot/ssb/title_left.png" ></image>
+      <text>选择您的加价权益</text>
+      <image src="{{imgUrlNew}}yy/iot/ssb/title_right.png" ></image>
+    </view>
+    <view >
+      <view wx:for="{{vou}}" wx:key="index" class="vouItem" bindtap="chooseVou" data-index="{{index}}"
+        data-id="{{item.id}}" data-ran="{{item.ran}}" data-item="{{item}}" data-selected="{{item.selected}}">
+        <view class="sign">
+          <image wx:if="{{item.selected}}" class="stateIcon" src="{{imgUrlNew}}yy/vouchers/xzicon.png" />
+          <image wx:else class="stateIcon" src="{{imgUrlNew}}yy/vouchers/wxzicon.png" />
+          <image class="pic" src="{{item.pic}}" />
+          <view class="info">
+            <view class="title">{{item.voucherName}}</view>
+            <!-- <view class="title2">·{{item.description}}</view> -->
+            <view class="title2">·{{item.remark}}</view>
+            <view class="title2">·{{item.endDate}} 过期</view>
+          </view>
+        </view>
+        <!-- <view class="tips" wx:if="{{item.checked}}"><image mode="widthFix"  src="http://sbag-small.oss-cn-huhehaote.aliyuncs.com/upload/img/web/yy/vouchers/th.png"/>已选择同同类型卡券,不可叠加使用</view> -->
+      </view>
+    </view>
+    
+    <view class="btns">
+      <view   bindtap="submit"  data-data="2" class="btn_left button">跳过</view>
+      <view   bindtap="submit"  data-data="1" class="btn_right button">确认</view>
+    </view>
+  </view>
+
+
+
+
+</view>
+
+
+</view>

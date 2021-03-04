@@ -1,0 +1,26 @@
+
+<view class="vouchers">
+  <image class="bghead" mode="widthFix" src="http://sbag-small.oss-cn-huhehaote.aliyuncs.com/upload/img/web/yy/vouchers/h5/bghead.png" alt="" />
+  <image class="bgmain" mode="widthFix" src="http://sbag-small.oss-cn-huhehaote.aliyuncs.com/upload/img/web/yy/vouchers/h5/bgmain.png" alt="" />
+  <view class="box1" bindtap="get">领取红包</view>
+
+  <!-- 蒙版授权登录 -->
+  <view class="mask" wx:if="{{!userInfo.userMobile}}">
+      <view class="success_content">
+        <image class="bgmain" mode="widthFix" src="{{imgUrlNew}}yy/member/success2.png" alt="" />
+        <view class="p1">拾尚回收小程序申请获得以下权限</view>
+        <view class="p2">获得您的手机号码</view>
+        <button  lang="zh_CN" wx:if="{{autoDisplay}}" open-type="getPhoneNumber" bindgetphonenumber="onGetAuthorize">微信自动登录</button>
+        <button loading wx:else>微信自动登录</button>
+      </view>
+  </view>
+  <!-- 蒙版成功领取 -->
+  <view class="mask" wx:if="{{success_mask}}">
+      <view class="success_content">
+        <view class="head">领取成功</view>
+        <image class="bgmain" mode="widthFix" src="{{imgUrlNew}}yy/member/success1.png" alt="" />
+        <view class="p1">卡券已发送至拾尚回收小程序中</view>
+        <view class="p2">可进入“我的-权益”中查看</view>
+      </view>
+  </view>
+</view>

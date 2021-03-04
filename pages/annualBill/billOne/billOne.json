@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "我的账单",
+  "navigationStyle": "custom",
+  "disableScroll": true, 
+  "component": true,
+  "usingComponents": {
+    "ff-canvas": "../../../f2-canvas/f2-canvas"
+  }
+}

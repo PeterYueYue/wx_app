@@ -1,0 +1,15 @@
+<view class="page">
+  <view class="list">
+    <view wx:for="{{qlist}}" class="item">
+      <view class="line"></view>
+      <view class="right">
+        <view class="title">{{(index+1)}}、{{item.questionStem.text}}</view>
+        <view   class="options">
+          <view wx:for="{{item.optionList}}" class="optItem {{item.isCorrect?'active':''}}">
+            {{item.text}} <text wx:if="{{item.isCorrect}}" class="dh"></text> 
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
